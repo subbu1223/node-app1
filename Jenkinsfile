@@ -22,9 +22,10 @@ pipeline {
 		    sh "chmod +x changeTag.sh"
 		    sh "./changeTag.sh ${DOCKER_TAG}"
                 sshagent (['k8s-master']) {
+			echo -e "hi"
 				sh "ssh -o StrictHostKeyChecking=no services.yml -p node-app-pod.yml ubuntu@3.80.32.247:/home/ubuntu/"
 				    script{
-					    
+					    echo -e "hello"
 						try{
 						sh "ssh ubuntu@3.80.32.247 kubectl apply -f ."
 						}catch(error) {
