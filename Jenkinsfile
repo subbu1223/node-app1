@@ -23,7 +23,7 @@ pipeline {
 		    sh "./changeTag.sh ${DOCKER_TAG}"
                 sshagent (['k8s-master']) {
 		
-				sh "scp -o StrictHostKeyChecking=no services.yml -p node-app-pod.yml ubuntu@3.80.32.247:/home/ubuntu/"
+				sh "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml ubuntu@3.80.32.247:/home/ubuntu/"
 				    script{
 					
 						try{
