@@ -2,7 +2,7 @@
 
 # This is to demo
 
-node_app=`docker ps -a | grep nodeapp | awk '{print $NF}'`
+node_app1=`docker ps -a | grep nodeapp | awk '{print $NF}'`
 if [ $node_app1=='nodeapp' ]; then
     echo "nodeapp is running, lets delete"
         docker rm -f nodeapp
